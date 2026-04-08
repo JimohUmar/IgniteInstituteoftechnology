@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ignite Institute of Technology — Awakening Tech Potential</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0056D2;--blue-dark:#003EA6;--blue-light:#E8F1FC;--navy:#1F1F3A;--yellow:#F5BE3D;--yellow-lt:#FEF7E0;--white:#FFFFFF;--gray-50:#F8F9FA;--gray-100:#F1F3F4;--gray-200:#E8EAED;--gray-400:#9AA0A6;--gray-600:#5F6368;--gray-800:#3C4043;--text:#1F1F1F;--red-lt:#FEE8E8;--red:#D93025;--green-lt:#E6F4EA;--green:#1E8E3E;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:var(--white);border-bottom:1px solid var(--gray-200);box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:17px;color:var(--navy);}
+.nav-logo .logo-badge{background:var(--blue);color:var(--white);font-weight:700;font-size:13px;padding:4px 10px;border-radius:4px;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{color:var(--gray-800);text-decoration:none;font-size:15px;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s;}
+.nav-links a:hover{color:var(--blue);border-bottom-color:var(--blue);}
+.nav-cta{background:var(--blue);color:var(--white)!important;padding:10px 22px!important;border-radius:4px!important;font-weight:600!important;border-bottom:none!important;}
+.nav-cta:hover{background:var(--blue-dark)!important;border-bottom:none!important;}
+.hero{padding:100px 5% 80px;background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:92vh;border-bottom:1px solid var(--gray-200);}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--blue-light);color:var(--blue);font-size:13px;font-weight:600;letter-spacing:0.5px;padding:6px 14px;border-radius:100px;margin-bottom:24px;}
+.hero-eyebrow span{width:6px;height:6px;background:var(--blue);border-radius:50%;display:inline-block;}
+h1{font-family:'Source Serif 4',serif;font-size:clamp(36px,4.5vw,54px);font-weight:700;line-height:1.15;color:var(--navy);margin-bottom:20px;}
+h1 em{color:var(--blue);font-style:normal;}
+.hero-sub{font-size:18px;color:var(--gray-600);line-height:1.7;margin-bottom:36px;max-width:500px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;}
+.btn-primary{background:var(--blue);color:var(--white);padding:14px 28px;border-radius:4px;font-size:16px;font-weight:600;text-decoration:none;transition:background 0.2s;display:inline-block;}
+.btn-primary:hover{background:var(--blue-dark);}
+.btn-outline{background:transparent;color:var(--blue);padding:13px 28px;border-radius:4px;font-size:16px;font-weight:600;text-decoration:none;border:2px solid var(--blue);transition:all 0.2s;display:inline-block;}
+.btn-outline:hover{background:var(--blue-light);}
+.hero-stats{display:flex;gap:40px;padding-top:36px;border-top:1px solid var(--gray-200);flex-wrap:wrap;}
+.hero-stat-num{font-family:'Source Serif 4',serif;font-size:30px;font-weight:700;color:var(--blue);line-height:1;}
+.hero-stat-label{font-size:13px;color:var(--gray-600);margin-top:4px;}
+.hero-image-col{display:flex;flex-direction:column;gap:16px;}
+.hero-img-card{background:var(--blue);border-radius:12px;padding:36px 32px;color:var(--white);position:relative;overflow:hidden;}
+.hero-img-card::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.06);top:-60px;right:-60px;}
+.hero-img-card-title{font-family:'Source Serif 4',serif;font-size:22px;font-weight:700;margin-bottom:8px;}
+.hero-img-card-sub{font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:20px;}
+.level-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.level-pill{background:rgba(255,255,255,0.15);color:var(--white);padding:6px 14px;border-radius:100px;font-size:13px;font-weight:600;}
+.level-pill.yellow{background:var(--yellow);color:var(--navy);}
+.mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.mini-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:16px;}
+.mini-card-icon{font-size:20px;margin-bottom:6px;}
+.mini-card-title{font-size:13px;font-weight:700;color:var(--navy);}
+.mini-card-sub{font-size:12px;color:var(--gray-600);}
+section{padding:80px 5%;}
+.section-label{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+h2{font-family:'Source Serif 4',serif;font-size:clamp(28px,3.5vw,40px);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:16px;}
+h2 em{color:var(--blue);font-style:normal;}
+.section-sub{font-size:17px;color:var(--gray-600);line-height:1.7;max-width:620px;margin-bottom:48px;}
+.gap-section{background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);}
+.gap-stat-banner{background:var(--navy);border-radius:12px;padding:28px 36px;margin-bottom:40px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.gap-stat-num{font-family:'Source Serif 4',serif;font-size:42px;font-weight:700;color:var(--yellow);flex-shrink:0;}
+.gap-stat-text{font-size:16px;color:rgba(255,255,255,0.85);line-height:1.5;}
+.gap-stat-text strong{color:var(--white);}
+.gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.gap-col-title{font-size:14px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:10px 16px;border-radius:6px;margin-bottom:16px;}
+.gap-col-title.before{background:var(--red-lt);color:var(--red);}
+.gap-col-title.after{background:var(--blue-light);color:var(--blue-dark);}
+.gap-row{display:flex;align-items:flex-start;gap:14px;padding:16px;border-radius:8px;margin-bottom:10px;}
+.gap-row.before{background:var(--red-lt);border:1px solid #FBCACA;}
+.gap-row.after{background:var(--blue-light);border:1px solid #BDD5F5;}
+.gap-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;margin-top:1px;}
+.gap-dot.x{background:var(--red);color:var(--white);}
+.gap-dot.check{background:var(--blue);color:var(--white);}
+.gap-row-title{font-size:14px;font-weight:700;margin-bottom:3px;}
+.gap-row.before .gap-row-title{color:var(--red);}
+.gap-row.after .gap-row-title{color:var(--blue-dark);}
+.gap-row-body{font-size:13px;color:var(--gray-600);line-height:1.5;}
+.gap-punchline{grid-column:1/-1;background:var(--navy);color:var(--white);padding:20px 28px;border-radius:8px;font-size:17px;font-weight:600;text-align:center;border-left:5px solid var(--yellow);}
+.curriculum-section{background:var(--white);}
+.tabs{display:flex;gap:0;margin-bottom:36px;border-bottom:2px solid var(--gray-200);}
+.tab-btn{padding:14px 28px;background:transparent;border:none;font-size:15px;font-weight:600;color:var(--gray-600);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;font-family:'Source Sans 3',sans-serif;}
+.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);}
+.tab-btn:hover{color:var(--blue);}
+.tab-pane{display:none;}
+.tab-pane.active{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.class-card{border:1px solid var(--gray-200);border-radius:8px;overflow:hidden;transition:box-shadow 0.2s,transform 0.2s;}
+.class-card:hover{box-shadow:0 4px 20px rgba(0,86,210,0.12);transform:translateY(-3px);}
+.class-card-head{padding:20px 22px 16px;border-bottom:1px solid var(--gray-200);}
+.class-badge{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:100px;display:inline-block;margin-bottom:10px;}
+.jss .class-badge{background:var(--blue-light);color:var(--blue-dark);}
+.sss .class-badge{background:var(--yellow-lt);color:#7A5C00;}
+.class-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3;}
+.class-card-body{padding:18px 22px;}
+.class-points{list-style:none;margin-bottom:16px;}
+.class-points li{font-size:13px;color:var(--gray-800);padding:5px 0;border-bottom:1px solid var(--gray-100);display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+.class-points li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:6px;}
+.class-outcome{background:var(--blue-light);border-left:3px solid var(--blue);padding:10px 14px;border-radius:0 6px 6px 0;font-size:12px;color:var(--blue-dark);font-style:italic;line-height:1.5;}
+.roadmap-section{background:var(--gray-50);border-top:1px solid var(--gray-200);}
+.roadmap-grid{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
+.roadmap-row{display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:16px;background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:16px 20px;transition:border-color 0.2s;}
+.roadmap-row:hover{border-color:var(--blue);}
+.roadmap-badge{font-size:13px;font-weight:700;text-align:center;padding:6px 10px;border-radius:6px;}
+.roadmap-badge.jss{background:var(--blue-light);color:var(--blue-dark);}
+.roadmap-badge.sss{background:var(--yellow-lt);color:#7A5C00;}
+.roadmap-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:2px;}
+.roadmap-sub{font-size:13px;color:var(--gray-600);}
+.roadmap-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-400);white-space:nowrap;}
+.roadmap-divider{display:flex;align-items:center;gap:12px;margin:8px 0;font-size:12px;color:var(--gray-400);font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.roadmap-divider::before,.roadmap-divider::after{content:'';flex:1;height:1px;background:var(--gray-200);}
+.stats-section{background:var(--blue);}
+.stats-section h2{color:var(--white);}
+.stats-section .section-label{color:rgba(255,255,255,0.7);}
+.stats-section .section-sub{color:rgba(255,255,255,0.75);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.stat-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:28px 20px;text-align:center;transition:background 0.2s;}
+.stat-card:hover{background:rgba(255,255,255,0.16);}
+.stat-num{font-family:'Source Serif 4',serif;font-size:44px;font-weight:700;color:var(--yellow);line-height:1;margin-bottom:8px;}
+.stat-label{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.4;}
+.how-section{background:var(--white);}
+.steps-list{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+.step-row{display:grid;grid-template-columns:60px 1fr;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--gray-100);}
+.step-row:last-child{border-bottom:none;}
+.step-circle{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-weight:700;font-size:18px;flex-shrink:0;margin-top:10px;}
+.step-circle.blue{background:var(--blue);color:var(--white);}
+.step-circle.yellow{background:var(--yellow);color:var(--navy);}
+.step-content-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:6px;margin-top:10px;}
+.step-content-body{font-size:15px;color:var(--gray-600);line-height:1.6;}
+.handle-section{background:var(--gray-50);border-top:1px solid var(--gray-200);}
+.handle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.handle-card{background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:28px 24px;transition:box-shadow 0.2s;}
+.handle-card:hover{box-shadow:0 4px 16px rgba(0,86,210,0.1);}
+.handle-icon{width:44px;height:44px;border-radius:8px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;}
+.handle-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.handle-body{font-size:14px;color:var(--gray-600);line-height:1.6;}
+.benefits-section{background:var(--white);}
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.benefit-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:28px;display:flex;align-items:flex-start;gap:16px;transition:border-color 0.2s;}
+.benefit-card:hover{border-color:var(--blue);}
+.benefit-num{font-family:'Source Serif 4',serif;font-size:32px;font-weight:700;color:var(--blue);line-height:1;flex-shrink:0;}
+.benefit-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.benefit-body{font-size:14px;color:var(--gray-600);line-height:1.6;}
+.cta-banner{grid-column:1/-1;background:var(--blue);border-radius:8px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.cta-banner-text{font-size:18px;font-weight:700;color:var(--white);}
+.cta-banner-sub{font-size:14px;color:rgba(255,255,255,0.75);margin-top:2px;}
+.btn-yellow{background:var(--yellow);color:var(--navy);padding:12px 24px;border-radius:4px;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;transition:opacity 0.2s;display:inline-block;}
+.btn-yellow:hover{opacity:0.9;}
+.cta-section{background:var(--navy);padding:80px 5%;text-align:center;}
+.cta-section h2{color:var(--white);margin-bottom:16px;}
+.cta-section .section-sub{color:rgba(255,255,255,0.65);margin:0 auto 36px;}
+.contact-grid{display:flex;justify-content:center;gap:48px;margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap;}
+.contact-item .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px;}
+.contact-item .val{font-size:16px;font-weight:600;color:var(--white);}
+footer{background:#111;padding:32px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo{font-size:15px;font-weight:700;color:var(--white);}
+.footer-logo span{color:var(--yellow);}
+.footer-copy{font-size:13px;color:rgba(255,255,255,0.35);}
+.footer-links{display:flex;gap:20px;list-style:none;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--white);}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:90px;}.hero-image-col{display:none;}.tab-pane.active{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr 1fr;}.handle-grid{grid-template-columns:1fr 1fr;}.gap-grid{grid-template-columns:1fr;}.benefits-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo"><span class="logo-badge">IIT</span>Ignite Institute of Technology</a>
+  <ul class="nav-links">
+    <li><a href="#gap">The Gap</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#contact" class="nav-cta">Partner With Us</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span></span>Now Partnering with Schools in Sango Ota, Ogun State</div>
+    <h1>Awakening the <em>tech potential</em> in every student.</h1>
+    <p class="hero-sub">Ignite Institute of Technology brings world-class digital skills training directly into secondary schools — from JSS 1 to SSS 3. Hands-on. AI-powered. Affordable.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Partner With Your School</a>
+      <a href="#curriculum" class="btn-outline">See the Curriculum</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">6</div><div class="hero-stat-label">Class levels covered</div></div>
+      <div><div class="hero-stat-num">500K+</div><div class="hero-stat-label">Digital jobs needed by 2030</div></div>
+      <div><div class="hero-stat-num">83%</div><div class="hero-stat-label">Future jobs need digital skills</div></div>
+    </div>
+  </div>
+  <div class="hero-image-col">
+    <div class="hero-img-card">
+      <div class="hero-img-card-title">A Partnership Proposal</div>
+      <div class="hero-img-card-sub">Secondary Schools in Sango Ota</div>
+      <div class="level-pills">
+        <span class="level-pill">JSS 1</span><span class="level-pill">JSS 2</span><span class="level-pill">JSS 3</span>
+        <span class="level-pill yellow">SSS 1</span><span class="level-pill yellow">SSS 2</span><span class="level-pill yellow">SSS 3</span>
+      </div>
+    </div>
+    <div class="mini-cards">
+      <div class="mini-card"><div class="mini-card-icon">💻</div><div class="mini-card-title">Microsoft Office + AI</div><div class="mini-card-sub">JSS 1 — Copilot AI</div></div>
+      <div class="mini-card"><div class="mini-card-icon">🎨</div><div class="mini-card-title">Canva Design & Web</div><div class="mini-card-sub">JSS 3 — Canva AI</div></div>
+      <div class="mini-card"><div class="mini-card-icon">📱</div><div class="mini-card-title">UI/UX + Figma</div><div class="mini-card-sub">SSS 1 — Figma AI</div></div>
+      <div class="mini-card"><div class="mini-card-icon">📣</div><div class="mini-card-title">Digital Marketing</div><div class="mini-card-sub">SSS 3 — SEO & Ads</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="gap-section reveal" id="gap">
+  <div class="section-label">Bridging the Digital Skills Gap</div>
+  <h2>What is <em>missing</em> in your school right now?</h2>
+  <p class="section-sub">Over 50% of secondary school students underperform compared to peers in schools that have adopted technology. Here is the gap IIT is closing.</p>
+  <div class="gap-stat-banner">
+    <div class="gap-stat-num">50%+</div>
+    <div class="gap-stat-text">Of secondary school students perform below peers from tech-adopting schools. <strong>IIT is here to close that gap — permanently.</strong></div>
+  </div>
+  <div class="gap-grid">
+    <div>
+      <div class="gap-col-title before">✕  Current Gap in Digital Education</div>
+      <div class="gap-row before"><div class="gap-dot x">✕</div><div><div class="gap-row-title">Computer Science is mostly theory</div><div class="gap-row-body">Students learn outdated concepts with little or no hands-on practice on real tools.</div></div></div>
+      <div class="gap-row before"><div class="gap-dot x">✕</div><div><div class="gap-row-title">Limited design & creativity tools</div><div class="gap-row-body">Canva, Figma and other industry tools are completely absent from the curriculum.</div></div></div>
+      <div class="gap-row before"><div class="gap-dot x">✕</div><div><div class="gap-row-title">No internet or digital skills training</div><div class="gap-row-body">Students are not taught how to use the internet productively for work or business.</div></div></div>
+      <div class="gap-row before"><div class="gap-dot x">✕</div><div><div class="gap-row-title">No AI literacy whatsoever</div><div class="gap-row-body">Students graduate with zero understanding of AI tools reshaping every industry.</div></div></div>
+      <div class="gap-row before"><div class="gap-dot x">✕</div><div><div class="gap-row-title">No real-world project experience</div><div class="gap-row-body">Students never build, design or publish anything — their CVs are completely empty.</div></div></div>
+    </div>
+    <div>
+      <div class="gap-col-title after">✓  IIT's Comprehensive Solution</div>
+      <div class="gap-row after"><div class="gap-dot check">✓</div><div><div class="gap-row-title">Hands-on, tool-based learning</div><div class="gap-row-body">Microsoft Office, Google Workspace, Canva — real tools used in real workplaces.</div></div></div>
+      <div class="gap-row after"><div class="gap-dot check">✓</div><div><div class="gap-row-title">Design & creativity skills development</div><div class="gap-row-body">Students learn Canva and Figma — tools used by professionals across the world.</div></div></div>
+      <div class="gap-row after"><div class="gap-dot check">✓</div><div><div class="gap-row-title">Practical digital & internet skills</div><div class="gap-row-body">Students learn to work, communicate and build things online from JSS 1.</div></div></div>
+      <div class="gap-row after"><div class="gap-dot check">✓</div><div><div class="gap-row-title">AI literacy built into every class</div><div class="gap-row-body">Every level integrates AI tools — Copilot, Gemini, Canva AI, GitHub Copilot.</div></div></div>
+      <div class="gap-row after"><div class="gap-dot check">✓</div><div><div class="gap-row-title">Real projects & student portfolios</div><div class="gap-row-body">Students graduate with actual work — websites, designs and campaigns they built.</div></div></div>
+    </div>
+    <div class="gap-punchline">"IIT does not replace your school — we complete it."</div>
+  </div>
+</section>
+
+<section class="curriculum-section reveal" id="curriculum">
+  <div class="section-label">Our Programmes</div>
+  <h2>A 6-year <em>digital journey</em> — JSS 1 to SSS 3</h2>
+  <p class="section-sub">Every class level has a dedicated, structured programme that builds progressively on the previous year — ensuring students graduate with real, portfolio-ready digital skills.</p>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('jss',this)">Junior Secondary School (JSS 1–3)</button>
+    <button class="tab-btn" onclick="showTab('sss',this)">Senior Secondary School (SSS 1–3)</button>
+  </div>
+  <div class="tab-pane active" id="tab-jss">
+    <div class="class-card jss"><div class="class-card-head"><span class="class-badge">JSS 1</span><div class="class-title">Microsoft Office with AI</div></div><div class="class-card-body"><ul class="class-points"><li>Microsoft Word — documents & formatting</li><li>Microsoft Excel — spreadsheets & data</li><li>Microsoft PowerPoint — presentations</li><li>Using Copilot AI to speed up work</li><li>Typing skills & digital file management</li></ul><div class="class-outcome">Students create a fully formatted Word report & PowerPoint presentation</div></div></div>
+    <div class="class-card jss"><div class="class-card-head"><span class="class-badge">JSS 2</span><div class="class-title">Google Workspace with AI</div></div><div class="class-card-body"><ul class="class-points"><li>Google Docs, Sheets & Slides mastery</li><li>Google Drive — cloud storage & collaboration</li><li>Google Forms — surveys & data collection</li><li>Gmail & Google Meet for communication</li><li>Using Google Gemini AI for productivity</li></ul><div class="class-outcome">Students collaborate on a live Google Workspace group project</div></div></div>
+    <div class="class-card jss"><div class="class-card-head"><span class="class-badge">JSS 3</span><div class="class-title">Canva Design & Website Development</div></div><div class="class-card-body"><ul class="class-points"><li>Canva fundamentals — layouts, fonts & colours</li><li>Designing social media graphics & posters</li><li>Creating presentations & infographics</li><li>Building a simple website using Canva</li><li>Canva AI — Magic Design & Text to Image</li></ul><div class="class-outcome">Students design a brand identity and publish a Canva website</div></div></div>
+  </div>
+  <div class="tab-pane" id="tab-sss">
+    <div class="class-card sss"><div class="class-card-head"><span class="class-badge">SSS 1</span><div class="class-title">Product Design (UI/UX) with AI</div></div><div class="class-card-body"><ul class="class-points"><li>Design thinking & problem-solving process</li><li>Wireframing and user journey mapping</li><li>Figma — industry-standard design tool</li><li>Creating interactive app prototypes</li><li>AI tools for design — Figma AI & Uizard</li></ul><div class="class-outcome">Students design a complete mobile app prototype in Figma</div></div></div>
+    <div class="class-card sss"><div class="class-card-head"><span class="class-badge">SSS 2</span><div class="class-title">Website Development with AI</div></div><div class="class-card-body"><ul class="class-points"><li>HTML & CSS fundamentals</li><li>JavaScript basics & interactivity</li><li>Responsive design for mobile & desktop</li><li>Building & publishing a real website</li><li>AI coding tools — GitHub Copilot & ChatGPT</li></ul><div class="class-outcome">Students build and publish a live personal or business website</div></div></div>
+    <div class="class-card sss"><div class="class-card-head"><span class="class-badge">SSS 3</span><div class="class-title">Digital Marketing</div></div><div class="class-card-body"><ul class="class-points"><li>Social media strategy & content creation</li><li>SEO — getting found on Google</li><li>Email marketing & audience building</li><li>Running paid ads on Meta & Google</li><li>Analytics — measuring campaign performance</li></ul><div class="class-outcome">Students plan and execute a live digital marketing campaign</div></div></div>
+  </div>
+</section>
+
+<section class="roadmap-section reveal">
+  <div class="section-label">Full Curriculum Roadmap</div>
+  <h2>JSS 1 to SSS 3 — <em>A 6-Year Digital Journey</em></h2>
+  <p class="section-sub">Each level builds progressively, ensuring students graduate with a strong, practical digital skill set ready for the modern workforce.</p>
+  <div class="roadmap-grid">
+    <div class="roadmap-row"><div class="roadmap-badge jss">JSS 1</div><div><div class="roadmap-title">Microsoft Office with AI</div><div class="roadmap-sub">Word, Excel, PowerPoint + Copilot AI</div></div><div class="roadmap-tag">Junior</div></div>
+    <div class="roadmap-row"><div class="roadmap-badge jss">JSS 2</div><div><div class="roadmap-title">Google Workspace with AI</div><div class="roadmap-sub">Docs, Sheets, Drive, Meet + Gemini AI</div></div><div class="roadmap-tag">Junior</div></div>
+    <div class="roadmap-row"><div class="roadmap-badge jss">JSS 3</div><div><div class="roadmap-title">Canva Design & Website Development</div><div class="roadmap-sub">Graphic design, brand kits & Canva websites + Canva AI</div></div><div class="roadmap-tag">Junior</div></div>
+    <div class="roadmap-divider">Senior Secondary</div>
+    <div class="roadmap-row"><div class="roadmap-badge sss">SSS 1</div><div><div class="roadmap-title">Product Design — UI/UX with AI</div><div class="roadmap-sub">Figma, wireframing, prototyping + Figma AI & Uizard</div></div><div class="roadmap-tag">Senior</div></div>
+    <div class="roadmap-row"><div class="roadmap-badge sss">SSS 2</div><div><div class="roadmap-title">Website Development with AI</div><div class="roadmap-sub">HTML, CSS, JavaScript + GitHub Copilot & ChatGPT</div></div><div class="roadmap-tag">Senior</div></div>
+    <div class="roadmap-row"><div class="roadmap-badge sss">SSS 3</div><div><div class="roadmap-title">Digital Marketing & Social Media Management</div><div class="roadmap-sub">SEO, social media strategy, paid ads & analytics</div></div><div class="roadmap-tag">Senior</div></div>
+  </div>
+</section>
+
+<section class="stats-section reveal">
+  <div class="section-label">You Should Act Now</div>
+  <h2>The Digital Economy Won't Wait</h2>
+  <p class="section-sub">Nigeria's digital economy is growing fast. Schools that embrace digital education today will produce the leaders of tomorrow.</p>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-num">500K+</div><div class="stat-label">Digital professionals Nigeria needs by 2030</div></div>
+    <div class="stat-card"><div class="stat-num">#1</div><div class="stat-label">Most in-demand skill across Africa is a tech skill</div></div>
+    <div class="stat-card"><div class="stat-num">3X</div><div class="stat-label">Higher earning potential for tech-skilled youth</div></div>
+    <div class="stat-card"><div class="stat-num">83%</div><div class="stat-label">Of future jobs will require digital skills</div></div>
+  </div>
+</section>
+
+<section class="how-section reveal" id="how">
+  <div class="section-label">The Process</div>
+  <h2>Simple. Seamless. <em>Zero burden</em> on your school.</h2>
+  <p class="section-sub">Getting started with IIT takes one conversation. We handle everything from there.</p>
+  <div class="steps-list">
+    <div class="step-row"><div><div class="step-circle blue">01</div></div><div><div class="step-content-title">We Reach Out</div><div class="step-content-body">IIT contacts your school and schedules a brief meeting with the principal or leadership team to discuss the partnership.</div></div></div>
+    <div class="step-row"><div><div class="step-circle yellow">02</div></div><div><div class="step-content-title">We Agree on a Schedule</div><div class="step-content-body">We fit our classes into your timetable — after school hours, free periods, or a dedicated slot that works for you.</div></div></div>
+    <div class="step-row"><div><div class="step-circle blue">03</div></div><div><div class="step-content-title">We Show Up</div><div class="step-content-body">Our qualified instructors arrive fully prepared with laptops, projector and a ready-to-deliver curriculum.</div></div></div>
+    <div class="step-row"><div><div class="step-circle yellow">04</div></div><div><div class="step-content-title">Students Learn & Build</div><div class="step-content-body">Students learn hands-on, build real projects and earn an IIT certificate upon completion of each class level.</div></div></div>
+    <div class="step-row"><div><div class="step-circle blue">05</div></div><div><div class="step-content-title">Graduation & Recognition</div><div class="step-content-body">Students graduate with certificates. Your school is officially recognised and listed as an IIT Partner School.</div></div></div>
+  </div>
+</section>
+
+<section class="handle-section reveal">
+  <div class="section-label">Our Commitment</div>
+  <h2>We Handle Everything. <em>All you do is partner with us.</em></h2>
+  <p class="section-sub">Your school provides the classroom. IIT handles everything else — zero operational burden on your teachers or management.</p>
+  <div class="handle-grid">
+    <div class="handle-card"><div class="handle-icon">📋</div><div class="handle-title">Curriculum & Lesson Plans</div><div class="handle-body">Fully designed and ready to deliver for each class level — JSS 1 through SSS 3.</div></div>
+    <div class="handle-card"><div class="handle-icon">👨‍🏫</div><div class="handle-title">Qualified Instructors</div><div class="handle-body">Experienced tech professionals who know how to teach digital skills to secondary school students.</div></div>
+    <div class="handle-card"><div class="handle-icon">💻</div><div class="handle-title">Laptops & Equipment</div><div class="handle-body">All devices and equipment are brought to your school on every class day. No purchase required.</div></div>
+    <div class="handle-card"><div class="handle-icon">🏅</div><div class="handle-title">Student Certificates</div><div class="handle-body">Every student who completes a level receives an official IIT certificate — issued per class level.</div></div>
+    <div class="handle-card"><div class="handle-icon">📊</div><div class="handle-title">Progress Tracking</div><div class="handle-body">Detailed termly progress reports are shared with your school so you can track student performance.</div></div>
+    <div class="handle-card"><div class="handle-icon">💰</div><div class="handle-title">Affordable, Flexible Pricing</div><div class="handle-body">Structured payment plans designed specifically for secondary schools — transparent, affordable, no hidden fees.</div></div>
+  </div>
+</section>
+
+<section class="benefits-section reveal" id="benefits">
+  <div class="section-label">School Benefits</div>
+  <h2>Why Partnering with IIT is <em>Great for Your School</em></h2>
+  <p class="section-sub">Beyond transforming your students, partnering with IIT gives your school a powerful competitive advantage in Sango Ota.</p>
+  <div class="benefits-grid">
+    <div class="benefit-card"><div class="benefit-num">01</div><div><div class="benefit-title">Enhanced Reputation</div><div class="benefit-body">Become known as a forward-thinking, tech-enabled school in Sango Ota — one that prepares students for the real world.</div></div></div>
+    <div class="benefit-card"><div class="benefit-num">02</div><div><div class="benefit-title">Attract More Students</div><div class="benefit-body">Parents are actively seeking schools that offer modern, relevant programmes. IIT makes your school stand out.</div></div></div>
+    <div class="benefit-card"><div class="benefit-num">03</div><div><div class="benefit-title">Affordable Cost</div><div class="benefit-body">IIT presents an affordable and structured cost for both the school and students — with flexible payment plans and no hidden charges.</div></div></div>
+    <div class="benefit-card"><div class="benefit-num">04</div><div><div class="benefit-title">Official IIT Partner Badge</div><div class="benefit-body">Your school is officially recognised and listed as an IIT Partner School — a mark of digital excellence in your community.</div></div></div>
+    <div class="cta-banner"><div><div class="cta-banner-text">Ready to take the next step?</div><div class="cta-banner-sub">Partner with IIT today and give your students the digital future they deserve.</div></div><a href="#contact" class="btn-yellow">Partner With Us</a></div>
+  </div>
+</section>
+
+<section class="cta-section reveal" id="contact">
+  <div class="section-label" style="color:rgba(255,255,255,0.5);text-align:center;">Get Started</div>
+  <h2>Is your school <em>IIT-ready?</em></h2>
+  <p class="section-sub">We are currently partnering with secondary schools across Sango Ota, Ogun State. One conversation is all it takes.</p>
+  <a href="mailto:hello@igniteinstitute.ng" class="btn-primary" style="font-size:17px;padding:16px 36px;">Send Us a Message</a>
+  <div class="contact-grid">
+    <div class="contact-item"><div class="label">Email</div><div class="val">hello@igniteinstitute.ng</div></div>
+    <div class="contact-item"><div class="label">Phone</div><div class="val">+234 000 000 0000</div></div>
+    <div class="contact-item"><div class="label">Location</div><div class="val">Sango Ota, Ogun State</div></div>
+    <div class="contact-item"><div class="label">Instagram</div><div class="val">@igniteinstitute.ng</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">IGNITE <span>INSTITUTE</span> OF TECHNOLOGY</div>
+  <p class="footer-copy">© 2025 Ignite Institute of Technology. Sango Ota, Ogun State, Nigeria.</p>
+  <ul class="footer-links">
+    <li><a href="#gap">The Gap</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+function showTab(id,btn){document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
